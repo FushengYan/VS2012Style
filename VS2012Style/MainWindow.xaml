@@ -1,0 +1,91 @@
+﻿<cw:CustomWindow x:Class="VS2012.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:cw="clr-namespace:WindowControls;assembly=CustomWindow"
+        Title="TreeView" Height="420" Width="720" WindowStartupLocation="CenterScreen" Background="Transparent" Loaded="WindowLoaded" Activated="CustomWindow_Activated">
+    <Grid x:Name="Body">
+        <TabControl SelectionChanged="TabControl_SelectionChanged" x:Name="TabControls" Margin="10,0,10,10">
+            <TabItem Header="Basic Controls">
+                <Grid>
+                    <TextBox TextWrapping="NoWrap" Text="TextBox" Margin="94,13,0,0" HorizontalAlignment="Left" Width="121" Height="22" VerticalAlignment="Top" />
+                    <Label Content="TextBox" Margin="0,12,0,0" HorizontalAlignment="Left" Width="89" Height="23" VerticalAlignment="Top" />
+                    <ProgressBar x:Name="prg" Value="50" Height="10" Margin="94,45,10,0" VerticalAlignment="Top" />
+                    <Label Content="ProgressBar" Margin="0,39,0,0" HorizontalAlignment="Left" Width="89" Height="28" VerticalAlignment="Top" />
+                    <Button Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="94,66,0,0" Click="Button_Click" />
+                    <Label Content="Button" Margin="0,67,0,0" HorizontalAlignment="Left" Width="89" Height="23" VerticalAlignment="Top" />
+                    <CheckBox Content="CheckBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="97,102,0,0" />
+                    <Label Content="CheckBox" Margin="0,95,0,0" HorizontalAlignment="Left" Width="89" Height="23" VerticalAlignment="Top" />
+                    <ComboBox HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="97,122,0,0" Height="24" SelectionChanged="ComboBox_SelectionChanged">
+                        <ComboBoxItem Content="Light" ></ComboBoxItem>
+                        <ComboBoxItem Content="Medium"></ComboBoxItem>
+                        <ComboBoxItem Content="Dark" IsSelected="True" ></ComboBoxItem>
+                    </ComboBox>
+                    <ComboBox HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="222,122,0,0" Height="24" SelectionChanged="ComboBox_SelectionChanged_1">
+                        <ComboBoxItem Content="Free" IsSelected="True"></ComboBoxItem>
+                        <ComboBoxItem Content="Ready"></ComboBoxItem>
+                        <ComboBoxItem Content="Busy"></ComboBoxItem>
+                        <ComboBoxItem Content="Error"></ComboBoxItem>
+                    </ComboBox>
+                    <ComboBox HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="347,122,0,0" Height="24" SelectionChanged="ComboBox_SelectionChanged_2">
+                        <ComboBoxItem Content="Blue" IsSelected="True" />
+                        <ComboBoxItem Content="Orange" />
+                        <ComboBoxItem Content="Green" />
+                        <ComboBoxItem Content="Purple" />
+                        <ComboBoxItem Content="OilGreen"></ComboBoxItem>
+                    </ComboBox>
+                    <Label Content="ComboBox" Margin="0,121,0,0" HorizontalAlignment="Left" Width="89" Height="23" VerticalAlignment="Top" />
+                    <Label Content="TreeView" Margin="0,149,0,0" HorizontalAlignment="Left" Width="89" Height="27" VerticalAlignment="Top" />
+                    <TreeView Margin="97,151,10,10">
+                        <TreeViewItem Header="Themes">
+                            <TreeViewItem Header="Controls">
+                                <TreeViewItem Header="ComboBox"></TreeViewItem>
+                                <TreeViewItem Header="Controls">
+                                    <TreeViewItem Header="CheckBox"></TreeViewItem>
+                                    <TreeViewItem Header="Button"></TreeViewItem>
+                                    <TreeViewItem Header="SidebarHeaderButton"></TreeViewItem>
+                                    <TreeViewItem Header="PinButton"></TreeViewItem>
+                                    <TreeViewItem Header="TextBox"></TreeViewItem>
+                                    <TreeViewItem Header="Label"></TreeViewItem>
+                                </TreeViewItem>
+                                <TreeViewItem Header="DataGrid"></TreeViewItem>
+                                <TreeViewItem Header="ScrollView"></TreeViewItem>
+                                <TreeViewItem Header="TabControlTop"></TreeViewItem>
+                                <TreeViewItem Header="TreeView"></TreeViewItem>
+                            </TreeViewItem>
+                            <TreeViewItem Header="Fonts">
+                                <TreeViewItem Header="SegoeWP"></TreeViewItem>
+                                <TreeViewItem Header="SegoeWP-Black"></TreeViewItem>
+                                <TreeViewItem Header="SegoeWP-Bold"></TreeViewItem>
+                                <TreeViewItem Header="SegoeWP-Light"></TreeViewItem>
+                                <TreeViewItem Header="SegoeWP-Semibold"></TreeViewItem>
+                                <TreeViewItem Header="SegoeWP-Semilight"></TreeViewItem>
+                            </TreeViewItem>
+                            <TreeViewItem Header="Images">
+                                <TreeViewItem Header="icon.png" />
+                            </TreeViewItem>
+                            <TreeViewItem Header="Styles">
+                                <TreeViewItem Header="Light"></TreeViewItem>
+                                <TreeViewItem Header="Medium"></TreeViewItem>
+                                <TreeViewItem Header="Dark"></TreeViewItem>
+                            </TreeViewItem>
+                            <TreeViewItem Header="Windows">
+                                <TreeViewItem Header="MetroLikeWindow"></TreeViewItem>
+                                <TreeViewItem Header="OverlayWindow"></TreeViewItem>
+                            </TreeViewItem>
+                        </TreeViewItem>
+                    </TreeView>
+                </Grid>
+            </TabItem>
+            <TabItem Header="DataGrid">
+                <DockPanel>
+                    <DataGrid x:Name="DG" IsReadOnly="True"/>
+                </DockPanel>
+            </TabItem>
+            <TabItem Header="Browser">
+                <DockPanel x:Name="BrowserPanel">
+                    <WindowsFormsHost x:Name="fw" />
+                </DockPanel>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</cw:CustomWindow>

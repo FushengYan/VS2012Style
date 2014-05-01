@@ -1,0 +1,102 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/netfx/2009/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:WindowControls">
+    <Style TargetType="{x:Type Button}" x:Key="ControlButtonStyle">
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="Foreground" Value="{DynamicResource ForegroundTextColor}" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="FontFamily" Value="Webdings" />
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="Margin" Value="0,0,0,8" />
+        <Setter Property="Padding" Value="2" />
+        <Setter Property="Width" Value="32" />
+        <Setter Property="Height" Value="24" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ButtonBase}">
+                    <Border
+                            BorderBrush="Transparent"
+                            Margin="0"
+                            Background="{TemplateBinding Background}"
+                            SnapsToDevicePixels="True">
+                        <ContentPresenter
+                                ContentTemplate="{TemplateBinding ContentTemplate}"
+                                Content="{TemplateBinding Content}"
+                                ContentStringFormat="{TemplateBinding ContentStringFormat}"
+                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                Margin="{TemplateBinding Padding}"
+                                RecognizesAccessKey="True"
+                                SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter Property="Background" Value="{DynamicResource WindowActionHoverBrush}" />
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="true">
+                            <Setter Property="Background" Value="{DynamicResource ApplicationAccentBrushSecondary}" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <!-- Window style -->
+    <Style TargetType="{x:Type local:CustomWindow}">
+        <Setter Property="RenderOptions.BitmapScalingMode" Value="HighQuality" />
+        <Setter Property="RenderOptions.EdgeMode" Value="Aliased" />
+        <Setter Property="RenderOptions.ClearTypeHint" Value="Enabled" />
+        <Setter Property="FontFamily" Value="{DynamicResource MetroFontRegular}" />
+        <Setter Property="MinHeight" Value="200" />
+        <Setter Property="MinWidth" Value="300" />
+        <Setter Property="FontWeight" Value="Normal" />
+        <Setter Property="FontSize" Value="20" />
+        <Setter Property="AllowsTransparency" Value="True" />
+        <Setter Property="WindowStyle" Value="None" />
+        <Setter Property="Background" Value="{DynamicResource MainBackgroundBrushMedium}" />
+        <Setter Property="ResizeMode" Value="CanResizeWithGrip" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:CustomWindow}">
+                    <Border x:Name="BorderShadow" BorderThickness="1"  Margin="5" CornerRadius="0" Background="{DynamicResource MainBackgroundBrushMedium}"  BorderBrush="{DynamicResource BackgroundAndBorderBrush}">
+                        <Border.Effect>
+                            <DropShadowEffect  Opacity=".9" ShadowDepth="0" Color="{DynamicResource BackgroundAndBorderColor}" BlurRadius="6"  Direction="90" RenderingBias="Quality" />
+                        </Border.Effect>
+                        <Grid Margin="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="32" />
+                                <RowDefinition  Height="*" />
+                                <RowDefinition Height="22" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <Border BorderBrush="{DynamicResource BackgroundAndBorderBrush}" BorderThickness="0,0,0,0" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
+                                <DockPanel x:Name="Header" Grid.Row="0" Grid.Column="0" Background="{DynamicResource MainBackgroundBrushMedium}">
+                                    <Image Source="/CustomWindow;component/Themes/Images/icon.png"  Width="48" Height="24" Margin="4,0,0,0"
+                                           RenderOptions.BitmapScalingMode="HighQuality" Stretch="Fill" />
+                                    <Label Content="{DynamicResource TitleText}" Foreground="{DynamicResource HeaderForeground}" FontFamily="{TemplateBinding FontFamily}" FontWeight="{TemplateBinding FontWeight}"
+                                           Padding="8" Margin="0" RenderOptions.ClearTypeHint="Enabled" FontSize="16" />
+                                </DockPanel>
+                            </Border>
+                            <WrapPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal">
+                                <Button x:Name="minimizeButton" Style="{StaticResource ControlButtonStyle}" Content="0" />
+                                <Button x:Name="restoreButton" Style="{StaticResource ControlButtonStyle}" Content="1" />
+                                <Button x:Name="closeButton" Style="{StaticResource ControlButtonStyle}"  Content="r" />
+                            </WrapPanel>
+                            <AdornerDecorator Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Margin="0">
+                                <ContentPresenter />
+                            </AdornerDecorator>
+                            <DockPanel Height="22" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" x:Name="Footer" Background="{DynamicResource BackgroundAndBorderBrush}">
+                                <Label FontSize="12" Content="{DynamicResource MessageText}" Foreground="White" Margin="3,0,0,0" Padding="4" RenderOptions.ClearTypeHint="Enabled" FontWeight="{TemplateBinding FontWeight}"
+                                       FontFamily="{TemplateBinding FontFamily}" />
+                                <ResizeGrip x:Name="ResGrp" HorizontalAlignment="Right" />
+                            </DockPanel>
+                        </Grid>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>
